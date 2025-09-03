@@ -60,7 +60,7 @@
   <div class="grid">
     <div class="col-8">
       <h2 style="margin:0 0 8px 0">Today’s Availability & Prices</h2>
-      <p class="subtitle" style="margin:0 0 14px 0">Static single‑file website. Edit the data below in the code and push to GitHub Pages. You can also make quick temporary changes here that only you see (saved to your browser).</p>
+
       <div class="controls" style="margin-bottom:12px">
         <label class="sr-only" for="catFilter">Filter</label>
         <select id="catFilter"></select>
@@ -142,12 +142,7 @@
       { name:'Sweet Corn (fresh)', category:'Vegetables', unit:'piece', price:18, lastUpdated:fmtDate(today) },
       { name:'Pomegranate (Grade‑1)', category:'Fruits', unit:'kg', price:145, lastUpdated:fmtDate(today) },
       { name:'Tomato', category:'Vegetables', unit:'kg', price:36, lastUpdated:fmtDate(today) },
-      { name:'Onion', category:'Vegetables', unit:'kg', price:32, lastUpdated:fmtDate(today) },
-      { name:'Potato', category:'Vegetables', unit:'kg', price:30, lastUpdated:fmtDate(today) },
-      { name:'Coriander Bunch', category:'Spices', unit:'bunch', price:12, lastUpdated:fmtDate(today) },
-      { name:'Raw Mango (seasonal)', category:'Fruits', unit:'kg', price:120, lastUpdated:fmtDate(today) },
-      { name:'Groundnuts (pods)', category:'Grains', unit:'kg', price:95, lastUpdated:fmtDate(today) },
-      { name:'Curd (local)', category:'Dairy', unit:'500 ml', price:40, lastUpdated:fmtDate(today) }
+      
     ];
 
     // —— LOCAL STORAGE MERGE (for previewing changes without editing code) ——
@@ -241,7 +236,7 @@
     document.getElementById('copyWA').addEventListener('click', async ()=>{
       const date = fmtDate(new Date());
       const top = items.slice(0,8).map(i=>`• ${i.name} — ₹${i.price}/${i.unit}`).join('\n');
-      const text = `Reddy Fresh Farm Deals (Thimmampalli)\n${date}\n${top}\n\nOrder: wa.me/9100000000`;
+      const text = `Reddy Fresh Farm Deals (Thimmampalli)\n${date}\n${top}\n\nOrder: wa.me/917816090164`;
       try{ await navigator.clipboard.writeText(text); alert('Copied for WhatsApp Status!'); }
       catch{ prompt('Copy this text:', text); }
     });
