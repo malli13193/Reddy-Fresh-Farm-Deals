@@ -60,7 +60,7 @@ footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
     document.getElementById('today').textContent=Updated: ${todayStr};
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // —— Public DATA (edit numbers and redeploy) ——
+    
     const DATA=[
       {name:'Pomegranates', unit:'kg', mrp:135, price:120},
       {name:'Tomatoes', unit:'kg', mrp:18, price:14},
@@ -68,7 +68,7 @@ footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
       {name:'Sweet Corn', unit:'piece', mrp:12, price:10}
     ];
 
-    // —— Render rows ——
+    
     const list=document.getElementById('list');
     function addRow(it){
       const el=document.createElement('div');
