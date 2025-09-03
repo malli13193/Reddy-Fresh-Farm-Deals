@@ -1,0 +1,252 @@
+<!doctype html>
+
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reddy Fresh Farm Deals — Thimmampalli 515465</title>
+  <meta name="description" content="Daily farm-fresh grocery availability & prices for Thimmampalli 515465. Sweet lime, sweet corn, pomegranates, and more. Order on WhatsApp." />
+  <!-- Open Graph for WhatsApp / social -->
+  <meta property="og:title" content="Reddy Fresh Farm Deals — Today’s Prices" />
+  <meta property="og:description" content="Farm‑fresh in Thimmampalli 515465. Tap to see today’s availability & rates, then WhatsApp to order." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/edf2f7/1a202c&text=Reddy+Fresh+Farm+Deals" />
+  <meta property="og:url" content="https://example.com" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>🥭</text></svg>">
+  <style>
+    :root{--bg:#0b1020;--card:#11172a;--muted:#a0aec0;--accent:#7c3aed;--accent2:#22c55e;--text:#e2e8f0;--border:#23314f}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b1020 0%,#0e1630 100%) fixed;color:var(--text)}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    header{display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .badge{padding:4px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+    .title{font-size:28px;font-weight:800;letter-spacing:.3px}
+    .subtitle{color:var(--muted);margin-top:2px}
+    .panel{background:linear-gradient(180deg,#0d1428 0%,#0b1224 100%);border:1px solid var(--border);border-radius:16px;padding:16px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .col-8{grid-column:span 12}
+    .col-4{grid-column:span 12}
+    @media(min-width:900px){.col-8{grid-column:span 8}.col-4{grid-column:span 4}}
+    .controls{display:flex;flex-wrap:wrap;gap:10px}
+    button, .btn{appearance:none;border:none;background:var(--accent);color:white;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn.secondary{background:#0b1224;border:1px solid var(--border);color:var(--text)}
+    .btn.green{background:var(--accent2);color:#052e14}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+    input, select{background:#0b1224;color:var(--text);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+    table{width:100%;border-collapse:separate;border-spacing:0 10px}
+    th{color:var(--muted);font-weight:600;text-align:left;font-size:12px;padding:0 10px}
+    td{background:linear-gradient(180deg,#0f1730 0%,#0b1224 100%);border:1px solid var(--border);border-radius:12px;padding:12px 10px}
+    td:first-child{border-top-right-radius:0;border-bottom-right-radius:0}
+    td:last-child{border-top-left-radius:0;border-bottom-left-radius:0}
+    .chip{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-size:12px}
+    .price{font-weight:800}
+    footer{color:var(--muted);font-size:13px;margin:24px 0}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div style="font-size:30px">🥗</div>
+        <div>
+          <div class="title">Reddy Fresh Farm Deals</div>
+          <div class="subtitle">Thimmampalli, 515465 • <a href="https://www.google.com/maps/search/?api=1&query=Thimmampalli+515465" target="_blank" rel="noopener" style="color:#93c5fd;text-decoration:none">Open map</a></div>
+        </div>
+      </div>
+      <div class="badge"><span id="today"></span></div>
+    </header><section class="panel" style="margin-top:18px">
+  <div class="grid">
+    <div class="col-8">
+      <h2 style="margin:0 0 8px 0">Today’s Availability & Prices</h2>
+      <p class="subtitle" style="margin:0 0 14px 0">Static single‑file website. Edit the data below in the code and push to GitHub Pages. You can also make quick temporary changes here that only you see (saved to your browser).</p>
+      <div class="controls" style="margin-bottom:12px">
+        <label class="sr-only" for="catFilter">Filter</label>
+        <select id="catFilter"></select>
+        <button id="resetLocal" class="btn secondary">Reset Local Changes</button>
+        <button id="copyWA" class="btn green">Copy WhatsApp Status</button>
+      </div>
+      <div style="overflow-x:auto">
+        <table id="itemsTable" aria-describedby="tableHelp">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Category</th>
+              <th>Unit</th>
+              <th>Price (₹)</th>
+              <th>Last Updated</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <div id="tableHelp" class="sr-only">Editable price list. Changes are stored only in your browser (localStorage) for preview.</div>
+      </div>
+    </div>
+    <div class="col-4">
+      <h3 style="margin:0 0 8px 0">Order / Contact</h3>
+      <div class="panel" style="padding:12px">
+        <p style="margin-top:0">WhatsApp us for orders, bulk, and delivery to nearby villages.</p>
+        <!-- Replace 9100000000 with your WhatsApp number (country code + number, no +) -->
+        <a id="waLink" class="btn" style="display:inline-block;margin-bottom:8px" href="https://wa.me/9100000000?text=Hi%20Reddy%20Fresh%20Farm%2C%20I%27d%20like%20to%20order%20from%20today%27s%20list." target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <div class="subtitle">Set timings: <span id="hours">6:30 AM – 8:30 PM</span></div>
+      </div>
+
+      <h3 style="margin:16px 0 8px 0">Quick Add (preview only)</h3>
+      <form id="quickAdd" class="panel" style="padding:12px">
+        <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr">
+          <input id="qaName" placeholder="Item (e.g., Sweet Lime)" required />
+          <input id="qaPrice" placeholder="Price (₹)" type="number" min="0" step="1" required />
+          <input id="qaUnit" placeholder="Unit (kg, dozen)" value="kg" />
+          <select id="qaCat">
+            <option>Fruits</option>
+            <option>Vegetables</option>
+            <option>Grains</option>
+            <option>Dairy</option>
+            <option>Spices</option>
+            <option>Others</option>
+          </select>
+          <button class="btn green" type="submit" style="grid-column:span 2">Add Item (local)</button>
+        </div>
+      </form>
+
+      <div class="panel" style="margin-top:16px">
+        <h4 style="margin:0 0 6px 0">How to update daily</h4>
+        <ol style="margin:6px 0 0 18px; color:var(--muted)">
+          <li>Change the <strong>DATA</strong> section in this file with new prices & dates.</li>
+          <li>Commit to GitHub → Settings → Pages → deploy.</li>
+          <li>Share your link on WhatsApp Status using the button above.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Reddy Fresh Farm Deals • Farm‑fresh produce direct from Thimmampalli. Built as a static site — no backend required.
+</footer>
+
+  </div> <script>
+    // —— UTIL: Date/time (India) ——
+    const IN_TZ = 'Asia/Kolkata';
+    const fmtDate = (d)=> new Intl.DateTimeFormat('en-IN',{year:'numeric',month:'short',day:'2-digit',timeZone:IN_TZ}).format(d);
+    const today = new Date();
+    document.getElementById('today').textContent = `Updated: ${fmtDate(today)}`;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // —— DATA: Edit this for your daily rates ——
+    // Tip: Keep items you always sell; just change price & lastUpdated each day.
+    const BASE_ITEMS = [
+      { name:'Sweet Lime (Mosambi)', category:'Fruits', unit:'kg', price:68, lastUpdated:fmtDate(today) },
+      { name:'Sweet Corn (fresh)', category:'Vegetables', unit:'piece', price:18, lastUpdated:fmtDate(today) },
+      { name:'Pomegranate (Grade‑1)', category:'Fruits', unit:'kg', price:145, lastUpdated:fmtDate(today) },
+      { name:'Tomato', category:'Vegetables', unit:'kg', price:36, lastUpdated:fmtDate(today) },
+      { name:'Onion', category:'Vegetables', unit:'kg', price:32, lastUpdated:fmtDate(today) },
+      { name:'Potato', category:'Vegetables', unit:'kg', price:30, lastUpdated:fmtDate(today) },
+      { name:'Coriander Bunch', category:'Spices', unit:'bunch', price:12, lastUpdated:fmtDate(today) },
+      { name:'Raw Mango (seasonal)', category:'Fruits', unit:'kg', price:120, lastUpdated:fmtDate(today) },
+      { name:'Groundnuts (pods)', category:'Grains', unit:'kg', price:95, lastUpdated:fmtDate(today) },
+      { name:'Curd (local)', category:'Dairy', unit:'500 ml', price:40, lastUpdated:fmtDate(today) }
+    ];
+
+    // —— LOCAL STORAGE MERGE (for previewing changes without editing code) ——
+    const LS_KEY = 'rffd-items-v1';
+    const local = JSON.parse(localStorage.getItem(LS_KEY)||'null');
+    let items = Array.isArray(local) && local.length ? local : BASE_ITEMS;
+
+    // —— RENDERING ——
+    const rowsEl = document.getElementById('rows');
+    const catFilter = document.getElementById('catFilter');
+
+    function cats(){
+      const s = new Set(['All']);
+      items.forEach(i=>s.add(i.category));
+      return Array.from(s);
+    }
+
+    function renderCats(){
+      catFilter.innerHTML = cats().map(c=>`<option>${c}</option>`).join('');
+    }
+
+    function render(){
+      const sel = catFilter.value || 'All';
+      rowsEl.innerHTML = '';
+      items
+        .filter(i => sel==='All' || i.category===sel)
+        .forEach((i,idx)=>{
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${i.name}</strong></td>
+            <td><span class="chip">${i.category}</span></td>
+            <td>${i.unit}</td>
+            <td class="price">₹ ${Number(i.price).toFixed(0)}</td>
+            <td>${i.lastUpdated}</td>
+            <td>
+              <button class="btn secondary" data-edit="${idx}">Edit</button>
+              <button class="btn" style="margin-left:8px" data-wa="${idx}">WA</button>
+            </td>`;
+          rowsEl.appendChild(tr);
+        });
+    }
+
+    function persist(){
+      localStorage.setItem(LS_KEY, JSON.stringify(items));
+    }
+
+    // —— EDIT HANDLERS ——
+    rowsEl.addEventListener('click', (e)=>{
+      const editIdx = e.target.getAttribute('data-edit');
+      const waIdx = e.target.getAttribute('data-wa');
+      if(editIdx!==null){
+        const i = items[Number(editIdx)];
+        const np = prompt(`New price for ${i.name} (₹)`, i.price);
+        if(np!==null && np!=='' && !isNaN(np)){
+          i.price = Number(np);
+          i.lastUpdated = fmtDate(new Date());
+          persist(); render();
+        }
+      }
+      if(waIdx!==null){
+        const i = items[Number(waIdx)];
+        const text = encodeURIComponent(`Rate • ${i.name}: ₹${i.price}/${i.unit} (as of ${i.lastUpdated})`);
+        window.open(`https://wa.me/?text=${text}`,'_blank');
+      }
+    });
+
+    // —— FILTER ——
+    catFilter.addEventListener('change', render);
+
+    // —— RESET LOCAL ——
+    document.getElementById('resetLocal').addEventListener('click', ()=>{
+      localStorage.removeItem(LS_KEY);
+      items = BASE_ITEMS.slice();
+      renderCats(); render();
+    });
+
+    // —— QUICK ADD (local only) ——
+    document.getElementById('quickAdd').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('qaName').value.trim();
+      const price = Number(document.getElementById('qaPrice').value);
+      const unit = document.getElementById('qaUnit').value.trim()||'kg';
+      const category = document.getElementById('qaCat').value;
+      if(!name || isNaN(price)) return;
+      items.unshift({name, category, unit, price, lastUpdated:fmtDate(new Date())});
+      persist(); renderCats(); render();
+      e.target.reset();
+    });
+
+    // —— WhatsApp status summary ——
+    document.getElementById('copyWA').addEventListener('click', async ()=>{
+      const date = fmtDate(new Date());
+      const top = items.slice(0,8).map(i=>`• ${i.name} — ₹${i.price}/${i.unit}`).join('\n');
+      const text = `Reddy Fresh Farm Deals (Thimmampalli)\n${date}\n${top}\n\nOrder: wa.me/9100000000`;
+      try{ await navigator.clipboard.writeText(text); alert('Copied for WhatsApp Status!'); }
+      catch{ prompt('Copy this text:', text); }
+    });
+
+    // —— INIT ——
+    renderCats(); render();
+  </script></body>
+</html>
