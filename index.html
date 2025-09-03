@@ -100,9 +100,23 @@ footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
     document.querySelectorAll('.date-today').forEach(el=>el.textContent=todayStr);
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // —— WhatsApp order link ——
+    // —— WhatsApp order link with robust fallback ——
     const WA_NUMBER='917816090164'; // 91 + 7816090164
     const ORDER_TEXT=encodeURIComponent('🤝 Hi Reddy Fresh Farm, I want to order from today\'s list.');
-    document.getElementById('waOrder').href=https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT};
+    const waWeb=https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT}; // Works in any browser
+    const waApp=whatsapp://send?phone=${WA_NUMBER}&text=${ORDER_TEXT}; // Opens app directly
+
+    const btn=document.getElementById('waOrder');
+    // Baseline: set regular web URL so crawlers / desktop still work
+    btn.href=waWeb;
+
+    // On phones, try opening the app; if it doesn't open, fall back to web link
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      // Try the app deep link first (works when WhatsApp is installed)
+      window.location.href=waApp;
+      // If the app isn't installed or deep link fails, go to wa.me after a short delay
+      setTimeout(()=>{ window.location.href=waWeb; }, 900);
+    });
   </script></body>
 </html>
