@@ -42,10 +42,50 @@ footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
           <div class="small">Thimmampalli • 515465</div>
         </div>
       </div>
-      <div id="today" class="badge"></div>
+      <div id="today" class="badge">Updated: <span class="date-today">—</span></div>
     </header><div class="offer">💥 Dhamaka Sale — Fresh Daily, Best Prices!</div>
 
-<div class="list" id="list"></div>
+<!--
+  STATIC-FIRST: Rows are hard-coded in HTML so they ALWAYS show,
+  even if JavaScript fails or page is cached. JS only updates the dates.
+-->
+<div class="list" id="list">
+  <div class="row">
+    <div class="name">Pomegranates <span class="small">(kg)</span></div>
+    <div class="priceBox">
+      <div class="price">₹ 120 <span class="small">/kg</span></div>
+      <div class="mrp">₹ 135 MRP</div>
+      <div class="date">as of <span class="date-today">—</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="name">Tomatoes <span class="small">(kg)</span></div>
+    <div class="priceBox">
+      <div class="price">₹ 14 <span class="small">/kg</span></div>
+      <div class="mrp">₹ 18 MRP</div>
+      <div class="date">as of <span class="date-today">—</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="name">Guava <span class="small">(kg)</span></div>
+    <div class="priceBox">
+      <div class="price">₹ 28 <span class="small">/kg</span></div>
+      <div class="mrp">₹ 34 MRP</div>
+      <div class="date">as of <span class="date-today">—</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="name">Sweet Corn <span class="small">(piece)</span></div>
+    <div class="priceBox">
+      <div class="price">₹ 10 <span class="small">/piece</span></div>
+      <div class="mrp">₹ 12 MRP</div>
+      <div class="date">as of <span class="date-today">—</span></div>
+    </div>
+  </div>
+</div>
 
 <!-- WhatsApp Order (only CTA needed) -->
 <a class="btn" id="waOrder" href="#" target="_blank" rel="noopener">📲 WhatsApp Order</a>
@@ -53,36 +93,12 @@ footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
 <footer>© <span id="year"></span> Reddy Fresh Farm Deals • Farm‑fresh produce delivered nearby.</footer>
 
   </div>  <script>
-    // —— Time (India) ——
+    // —— Put today's date (India) into all .date-today spans ——
     const IN_TZ='Asia/Kolkata';
     const fmtDate=d=>new Intl.DateTimeFormat('en-IN',{year:'numeric',month:'short',day:'2-digit',timeZone:IN_TZ}).format(d);
     const todayStr=fmtDate(new Date());
-    document.getElementById('today').textContent=Updated: ${todayStr};
+    document.querySelectorAll('.date-today').forEach(el=>el.textContent=todayStr);
     document.getElementById('year').textContent=new Date().getFullYear();
-
-    
-    const DATA=[
-      {name:'Pomegranates', unit:'kg', mrp:135, price:120},
-      {name:'Tomatoes', unit:'kg', mrp:18, price:14},
-      {name:'Guava', unit:'kg', mrp:34, price:28},
-      {name:'Sweet Corn', unit:'piece', mrp:12, price:10}
-    ];
-
-    
-    const list=document.getElementById('list');
-    function addRow(it){
-      const el=document.createElement('div');
-      el.className='row';
-      el.innerHTML=`
-        <div class="name">${it.name} <span class="small">(${it.unit})</span></div>
-        <div class="priceBox">
-          <div class="price">₹ ${it.price} <span class="small">/${it.unit}</span></div>
-          <div class="mrp">₹ ${it.mrp} MRP</div>
-          <div class="date">as of ${todayStr}</div>
-        </div>`;
-      list.appendChild(el);
-    }
-    DATA.forEach(addRow);
 
     // —— WhatsApp order link ——
     const WA_NUMBER='917816090164'; // 91 + 7816090164
