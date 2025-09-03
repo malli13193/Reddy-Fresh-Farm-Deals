@@ -1,0 +1,105 @@
+<!-- =============================================
+FILE 1: index.customer.html (Public, read-only)
+Mobile-first price catalog with Dhamaka Sale banner, WhatsApp CTA, live India date.
+Replace ONLY the DATA array to change prices; redeploy to publish.
+============================================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Reddy Fresh Farm Deals — Today’s Dhamaka Prices</title>
+  <meta name="description" content="Fresh Daily in Thimmampalli 515465. Dhamaka Sale prices for pomegranate, tomatoes, guava, sweet corn. Order on WhatsApp." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>🛒</text></svg>">
+  <style>
+    :root{--bg:#0b1020;--card:#0f162b;--ink:#e6eef6;--muted:#9fb1c6;--ok:#22c55e;--warn:#fde047;--strike:#9aa9bf;--stroke:#223154}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b1020,#0e1630);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:720px;margin:0 auto;padding:14px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .emoji{font-size:28px}
+    .title{font-weight:900}
+    .small{color:var(--muted);font-size:12px}
+    .badge{border:1px solid var(--stroke);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px}
+    .banner{margin:12px 0;padding:12px;border-radius:16px;background:linear-gradient(90deg,#0e1b3a,#092b1a);border:1px solid var(--stroke);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .banner b{color:var(--warn)}
+    .cta{display:flex;gap:8px;margin:10px 0}
+    a.btn{appearance:none;border:none;border-radius:12px;padding:12px 14px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;color:#04160c;background:var(--ok)}
+    .list{display:grid;gap:10px}
+    .card{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:12px}
+    .name{font-weight:800;font-size:16px}
+    .priceBox{display:flex;flex-direction:column;align-items:flex-end}
+    .price{font-weight:900;font-size:18px;line-height:1}
+    .mrp{color:var(--strike);text-decoration:line-through;font-size:12px;margin-top:4px}
+    .date{color:var(--muted);font-size:11px;line-height:1.2;margin-top:6px}
+    footer{color:var(--muted);font-size:12px;margin:16px 2px}
+    .loc{color:#93c5fd;text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="emoji">🥗</div>
+        <div>
+          <div class="title">Reddy Fresh Farm Deals</div>
+          <div class="small">Thimmampalli • 515465</div>
+        </div>
+      </div>
+      <div id="today" class="badge"></div>
+    </header><div class="banner">
+  <div><b>DHAMAKA SALE</b> — Fresh Daily, farm-direct pricing.</div>
+  <a class="btn" id="waTop" href="#">WhatsApp Order</a>
+</div>
+
+<div class="list" id="list"></div>
+
+<div class="cta">
+  <a class="btn" id="waBottom" href="#">Chat on WhatsApp</a>
+  <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Thimmampalli+515465" target="_blank" rel="noopener">Open Map</a>
+</div>
+
+<footer>
+  © <span id="year"></span> Reddy Fresh Farm Deals • Fresh & Fast delivery to nearby areas. Call/WhatsApp <b>+91 78160 90164</b> • <a class="loc" href="https://www.google.com/maps/search/?api=1&query=Thimmampalli+515465" target="_blank" rel="noopener">Thimmampalli 515465</a>
+</footer>
+
+  </div>  <script>
+    // ——— Time (India) ———
+    const IN_TZ='Asia/Kolkata';
+    const fmtDate=d=>new Intl.DateTimeFormat('en-IN',{year:'numeric',month:'short',day:'2-digit',timeZone:IN_TZ}).format(d);
+    const todayStr=fmtDate(new Date());
+    document.getElementById('today').textContent=Updated: ${todayStr};
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // ——— DATA (Public). Edit values & redeploy. Discount < list price ———
+    const DATA=[
+      {name:'Pomegranate (kg)', unit:'kg', mrp:135, price:120},
+      {name:'Tomato (kg)', unit:'kg', mrp:18, price:14},
+      {name:'Guava (kg)', unit:'kg', mrp:34, price:28},
+      {name:'Sweet Corn (piece)', unit:'piece', mrp:12, price:10},
+    ];
+
+    const WA_NUMBER='917816090164'; // 91 + 7816090164
+    const ORDER_TEXT=encodeURIComponent('Hi Reddy Fresh Farm, I want to order from today\'s Dhamaka sale.');
+    const waLink=https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT};
+    document.getElementById('waTop').href=waLink;
+    document.getElementById('waBottom').href=waLink;
+
+    const list=document.getElementById('list');
+    function addCard(it){
+      const el=document.createElement('div');
+      el.className='card';
+      el.innerHTML=`
+        <div class="name">${it.name}</div>
+        <div class="priceBox">
+          <div class="price">₹ ${it.price} <span class="small">/${it.unit}</span></div>
+          <div class="mrp">₹ ${it.mrp} MRP</div>
+          <div class="date">as of ${todayStr}</div>
+        </div>`;
+      list.appendChild(el);
+    }
+
+    DATA.forEach(addCard);
+  </script></body>
+</html>
