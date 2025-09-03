@@ -102,4 +102,104 @@ Replace ONLY the DATA array to change prices; redeploy to publish.
 
     DATA.forEach(addCard);
   </script></body>
+</html><!-- =============================================
+FILE 2: index.admin.html (Private preview for you ONLY)
+Tap a card to edit price locally; date updates automatically. No effect for customers.
+============================================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>[Admin] Reddy Fresh — Preview & Copy</title>
+  <meta name="description" content="Admin preview: tap to edit prices locally, copy WhatsApp status. Not for public sharing." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>🧮</text></svg>">
+  <style>
+    :root{--bg:#0b1020;--card:#0f162b;--ink:#e6eef6;--muted:#9fb1c6;--ok:#22c55e;--stroke:#223154;--strike:#9aa9bf}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b1020,#0e1630);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:720px;margin:0 auto;padding:14px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    .title{font-weight:900}
+    .badge{border:1px solid var(--stroke);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px}
+    .toolbar{display:flex;gap:8px;margin:12px 0}
+    .btn{appearance:none;border:none;border-radius:12px;padding:12px 14px;font-weight:800;color:#04160c;background:var(--ok)}
+    .btn.secondary{background:#0c1533;color:var(--ink);border:1px solid var(--stroke)}
+    .list{display:grid;gap:10px}
+    .card{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:12px;cursor:pointer}
+    .name{font-weight:800}
+    .price{font-weight:900;font-size:18px}
+    .mrp{color:var(--strike);text-decoration:line-through;font-size:12px;margin-top:4px}
+    .date{color:var(--muted);font-size:11px;margin-top:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">[Admin] Reddy Fresh — Today’s Prices</div>
+      <div id="today" class="badge"></div>
+    </header><div class="toolbar">
+  <button class="btn secondary" id="reset">Reset Local</button>
+  <button class="btn" id="copy">Copy WhatsApp Status</button>
+  <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+</div>
+
+<div class="list" id="list"></div>
+
+  </div>  <script>
+    const IN_TZ='Asia/Kolkata';
+    const fmtDate=d=>new Intl.DateTimeFormat('en-IN',{year:'numeric',month:'short',day:'2-digit',timeZone:IN_TZ}).format(d);
+    const todayStr=fmtDate(new Date());
+    document.getElementById('today').textContent=Updated: ${todayStr};
+
+    const BASE=[
+      {name:'Pomegranate (kg)', unit:'kg', mrp:135, price:120, date:todayStr},
+      {name:'Tomato (kg)', unit:'kg', mrp:18, price:14, date:todayStr},
+      {name:'Guava (kg)', unit:'kg', mrp:34, price:28, date:todayStr},
+      {name:'Sweet Corn (piece)', unit:'piece', mrp:12, price:10, date:todayStr},
+    ];
+
+    const LS='rff-admin-v1';
+    let items=JSON.parse(localStorage.getItem(LS)||'null');
+    if(!Array.isArray(items)||!items.length) items=BASE.slice();
+
+    const list=document.getElementById('list');
+    function save(){localStorage.setItem(LS,JSON.stringify(items));}
+    function render(){
+      list.innerHTML='';
+      items.forEach((it,i)=>{
+        const el=document.createElement('div');
+        el.className='card';
+        el.innerHTML=`
+          <div class="name">${it.name}</div>
+          <div style="text-align:right">
+            <div class="price">₹ ${it.price} <span class="small">/${it.unit}</span></div>
+            <div class="mrp">₹ ${it.mrp} MRP</div>
+            <div class="date">as of ${it.date}</div>
+          </div>`;
+        el.addEventListener('click',()=>{
+          const np=prompt(New price for ${it.name} (₹),it.price);
+          if(np!==null && np!=='' && !isNaN(np)){
+            it.price=Number(np); it.date=fmtDate(new Date()); save(); render();
+          }
+        });
+        list.appendChild(el);
+      });
+    }
+
+    const WA_NUMBER='917816090164';
+    const ORDER_TEXT=encodeURIComponent("Hi Reddy Fresh Farm, I'm updating/pricing today's list.");
+    document.getElementById('wa').href=https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT};
+
+    document.getElementById('copy').addEventListener('click',async()=>{
+      const lines=items.map(i=>• ${i.name}: ₹${i.price}/${i.unit} (MRP ₹${i.mrp}; as of ${i.date})).join('\n');
+      const msg=Reddy Fresh Farm Deals — Dhamaka Sale\n${todayStr}\n${lines}\nOrder: wa.me/${WA_NUMBER};
+      try{await navigator.clipboard.writeText(msg);alert('Copied to clipboard. Paste into WhatsApp Status.');}
+      catch{prompt('Copy this:',msg);}
+    });
+
+    document.getElementById('reset').addEventListener('click',()=>{localStorage.removeItem(LS);items=BASE.slice();render();});
+
+    render();
+  </script></body>
 </html>
