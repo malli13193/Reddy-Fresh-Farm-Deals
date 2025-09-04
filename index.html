@@ -109,14 +109,18 @@ const waWeb = `https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT}`;
 // For mobile app (opens WhatsApp app directly)
 const waApp = `whatsapp://send?phone=${WA_NUMBER}&text=${ORDER_TEXT}`;
 
+
 // Example: open automatically (detect mobile/desktop if you want)
-function openWhatsApp() {
-  if (/Mobi|Android/i.test(navigator.userAgent)) {
-    window.location.href = waApp;  // mobile
+btn.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+    // Mobile → try to open WhatsApp app
+    window.open(waApp, "_blank");
   } else {
-    window.open(waWeb, "_blank");  // desktop
+    // Desktop → open WhatsApp Web in new tab
+    window.open(waWeb, "_blank");
   }
-}
+});
 
     const btn=document.getElementById('waOrder');
     // Baseline: set regular web URL so crawlers / desktop still work
