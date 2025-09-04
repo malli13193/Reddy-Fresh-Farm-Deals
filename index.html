@@ -50,28 +50,28 @@
     <!-- STATIC-FIRST rows (always visible); JS only fills the date -->
     <div class="list" id="list">
  <div class="row">
-  <div class="name">🍎 Pomegranate (Dhanimma) <span class="small">(kg)</span></div>
+  <div class="name">🍎 Pomegranate (Dhanimma) </div>
   <div class="priceBox">
-    <div class="price">₹ 120 <span class="small">/kg</span></div>
+    <div class="price">₹ 99 <span class="small">/kg</span></div>
     <div class="mrp">₹ 135 MRP</div>
     <div class="date">as of <span class="date-today">—</span></div>
   </div>
 </div>
 
 <div class="row">
-  <div class="name">🍅 Tomato (Tamata) <span class="small">(kg)</span></div>
+  <div class="name">🍅 Tomato (Tamata) div>
   <div class="priceBox">
-    <div class="price">₹ 14 <span class="small">/kg</span></div>
-    <div class="mrp">₹ 18 MRP</div>
+    <div class="price">₹ 10 <span class="small">/kg</span></div>
+    <div class="mrp">₹ 30 MRP</div>
     <div class="date">as of <span class="date-today">—</span></div>
   </div>
 </div>
 
 <div class="row">
-  <div class="name">🍐 Guava (Jama) <span class="small">(kg)</span></div>
+  <div class="name">🍐 Guava (Jama) </div>
   <div class="priceBox">
     <div class="price">₹ 28 <span class="small">/kg</span></div>
-    <div class="mrp">₹ 34 MRP</div>
+    <div class="mrp">₹ 40 MRP</div>
     <div class="date">as of <span class="date-today">—</span></div>
   </div>
 </div>
@@ -81,20 +81,27 @@
   <div class="priceBox">
     <div class="highlight">₹ 5 <span class="small">/piece</span></div>
     <div class="mrp">₹ 10 MRP</div>
-    <div class="date">🔥 Dhamaka Rainy Sale — as of <span class="date-today">—</span></div>
+    <div class="date">🔥 Rainy Sale — as of <span class="date-today">—</span></div>
+  </div>
+</div>
+<div class="row">
+  <div class="name">🌶 Chilies (Mirchi) <span class="small">(kg)</span></div>
+  <div class="priceBox">
+    <div class="price">₹ 30 <span class="small">/kg</span></div>
+    <div class="mrp">₹ 50 MRP</div>
+    <div class="date">as of <span class="date-today">—</span></div>
   </div>
 </div>
 
-      <!-- Highlighted offer -->
-      <div class="row" style="border:2px solid var(--sale)">
-        <div class="name">🌽 Sweet Corn <span class="small">(piece)</span></div>
-        <div class="priceBox">
-          <div class="highlight">₹ 5 <span class="small">/piece</span></div>
-          <div class="mrp">₹ 10 MRP</div>
-          <div class="date">🔥 Special Rainy Sale — as of <span class="date-today">—</span></div>
-        </div>
-      </div>
-    </div>
+<div class="row">
+  <div class="name">🍋 Sweet Lime (Mosambi / Bathaya) <span class="small">(kg)</span></div>
+  <div class="priceBox">
+    <div class="price">₹ 40 <span class="small">/kg</span></div>
+    <div class="mrp">₹ 50 MRP</div>
+    <div class="date">as of <span class="date-today">—</span></div>
+  </div>
+</div>
+      
 
     <!-- Single CTA -->
     <a class="btn" id="waOrder" href="#" target="_blank" rel="noopener">📲 WhatsApp Order</a>
@@ -114,7 +121,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // ---- WhatsApp Order ----
 const WA_NUMBER = '917816090164'; // 91 + number
-const ORDER_TEXT = encodeURIComponent("🤝 Hi Reddy Fresh Farm, I want to order from today's list.");
+const ORDER_TEXT = encodeURIComponent("Hi Reddy Fresh Farm, I want to order from today's list.");
 const waApp = `whatsapp://send?phone=${WA_NUMBER}&text=${ORDER_TEXT}`; // App only
 
 const btn = document.getElementById('waOrder');
