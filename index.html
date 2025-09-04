@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -16,20 +15,21 @@
     .brand .emoji{font-size:28px}
     .title{font-weight:900;font-size:20px}
     .small{color:var(--muted);font-size:12px}
-    .badge{border:1px solid var(--stroke);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px}.offer{background:var(--sale);color:#fff;padding:10px;border-radius:12px;text-align:center;font-weight:800;margin:14px 0;font-size:16px}
+    .badge{border:1px solid var(--stroke);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px}
 
-.list{display:grid;gap:10px}
-.row{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:12px}
-.name{font-weight:800;font-size:16px}
-.priceBox{text-align:right}
-.price{font-weight:900;font-size:18px;line-height:1}
-.mrp{color:var(--strike);text-decoration:line-through;font-size:12px;margin-top:4px}
-.date{color:var(--muted);font-size:11px;line-height:1.2;margin-top:6px}
+    .offer{background:var(--sale);color:#fff;padding:10px;border-radius:12px;text-align:center;font-weight:800;margin:14px 0;font-size:16px}
 
-a.btn{display:block;text-align:center;margin:18px 0;padding:14px 16px;background:var(--ok);color:#04160c;font-weight:900;border-radius:12px;text-decoration:none}
+    .list{display:grid;gap:10px}
+    .row{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:12px}
+    .name{font-weight:800;font-size:16px}
+    .priceBox{text-align:right}
+    .price{font-weight:900;font-size:18px;line-height:1}
+    .mrp{color:var(--strike);text-decoration:line-through;font-size:12px;margin-top:4px}
+    .date{color:var(--muted);font-size:11px;line-height:1.2;margin-top:6px}
+    .highlight{color:var(--sale);font-weight:900;font-size:18px}
 
-footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
-
+    a.btn{display:block;text-align:center;margin:18px 0;padding:14px 16px;background:var(--ok);color:#04160c;font-weight:900;border-radius:12px;text-decoration:none}
+    footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
   </style>
 </head>
 <body>
@@ -43,93 +43,79 @@ footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
         </div>
       </div>
       <div id="today" class="badge">Updated: <span class="date-today">—</span></div>
-    </header><div class="offer">💥 Dhamaka Sale — Fresh Daily, Best Prices!</div>
+    </header>
 
-<!--
-  STATIC-FIRST: Rows are hard-coded in HTML so they ALWAYS show,
-  even if JavaScript fails or page is cached. JS only updates the dates.
--->
-<div class="list" id="list">
-  <div class="row">
-    <div class="name">Pomegranates <span class="small">(kg)</span></div>
-    <div class="priceBox">
-      <div class="price">₹ 120 <span class="small">/kg</span></div>
-      <div class="mrp">₹ 135 MRP</div>
-      <div class="date">as of <span class="date-today">—</span></div>
+    <div class="offer">💥 Dhamaka Rainy Sale — Sweet Corn just ₹5 Today!</div>
+
+    <!-- STATIC-FIRST rows (always visible); JS only fills the date -->
+    <div class="list" id="list">
+      <div class="row">
+        <div class="name">Pomegranates <span class="small">(kg)</span></div>
+        <div class="priceBox">
+          <div class="price">₹ 120 <span class="small">/kg</span></div>
+          <div class="mrp">₹ 135 MRP</div>
+          <div class="date">as of <span class="date-today">—</span></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="name">Tomatoes <span class="small">(kg)</span></div>
+        <div class="priceBox">
+          <div class="price">₹ 14 <span class="small">/kg</span></div>
+          <div class="mrp">₹ 18 MRP</div>
+          <div class="date">as of <span class="date-today">—</span></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="name">Guava <span class="small">(kg)</span></div>
+        <div class="priceBox">
+          <div class="price">₹ 28 <span class="small">/kg</span></div>
+          <div class="mrp">₹ 34 MRP</div>
+          <div class="date">as of <span class="date-today">—</span></div>
+        </div>
+      </div>
+
+      <!-- Highlighted offer -->
+      <div class="row" style="border:2px solid var(--sale)">
+        <div class="name">🌽 Sweet Corn <span class="small">(piece)</span></div>
+        <div class="priceBox">
+          <div class="highlight">₹ 5 <span class="small">/piece</span></div>
+          <div class="mrp">₹ 10 MRP</div>
+          <div class="date">🔥 Dhamaka Rainy Sale — as of <span class="date-today">—</span></div>
+        </div>
+      </div>
     </div>
+
+    <!-- Single CTA -->
+    <a class="btn" id="waOrder" href="#" target="_blank" rel="noopener">📲 WhatsApp Order</a>
+
+    <footer>© <span id="year"></span> Reddy Fresh Farm Deals • Farm-fresh produce delivered nearby.</footer>
   </div>
 
-  <div class="row">
-    <div class="name">Tomatoes <span class="small">(kg)</span></div>
-    <div class="priceBox">
-      <div class="price">₹ 14 <span class="small">/kg</span></div>
-      <div class="mrp">₹ 18 MRP</div>
-      <div class="date">as of <span class="date-today">—</span></div>
-    </div>
-  </div>
+  <script>
+    // Put today's date (India) into all .date-today spans
+    const IN_TZ = 'Asia/Kolkata';
+    const fmtDate = d => new Intl.DateTimeFormat('en-IN', {year:'numeric', month:'short', day:'2-digit', timeZone: IN_TZ}).format(d);
+    const todayStr = fmtDate(new Date());
+    document.querySelectorAll('.date-today').forEach(el => el.textContent = todayStr);
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <div class="row">
-    <div class="name">Guava <span class="small">(kg)</span></div>
-    <div class="priceBox">
-      <div class="price">₹ 28 <span class="small">/kg</span></div>
-      <div class="mrp">₹ 34 MRP</div>
-      <div class="date">as of <span class="date-today">—</span></div>
-    </div>
-  </div>
+    // WhatsApp order link with robust fallback
+    const WA_NUMBER = '917816090164'; // 91 + 7816090164
+    const ORDER_TEXT = encodeURIComponent("🤝 Hi Reddy Fresh Farm, I want to order from today's list.");
+    const waWeb = https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT};                // works in any browser
+    const waApp = whatsapp://send?phone=${WA_NUMBER}&text=${ORDER_TEXT};       // opens app directly
 
-  <div class="row">
-    <div class="name">Sweet Corn <span class="small">(piece)</span></div>
-    <div class="priceBox">
-      <div class="price">₹ 10 <span class="small">/piece</span></div>
-      <div class="mrp">₹ 12 MRP</div>
-      <div class="date">as of <span class="date-today">—</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- WhatsApp Order (only CTA needed) -->
-<a class="btn" id="waOrder" href="#" target="_blank" rel="noopener">📲 WhatsApp Order</a>
-
-<footer>© <span id="year"></span> Reddy Fresh Farm Deals • Farm‑fresh produce delivered nearby.</footer>
-
-  </div>  <script>
-    // —— Put today's date (India) into all .date-today spans ——
-    const IN_TZ='Asia/Kolkata';
-    const fmtDate=d=>new Intl.DateTimeFormat('en-IN',{year:'numeric',month:'short',day:'2-digit',timeZone:IN_TZ}).format(d);
-    const todayStr=fmtDate(new Date());
-    document.querySelectorAll('.date-today').forEach(el=>el.textContent=todayStr);
-    document.getElementById('year').textContent=new Date().getFullYear();
-
-   const WA_NUMBER = '917816090164'; // 91 + number
-const ORDER_TEXT = encodeURIComponent("🤝 Hi Reddy Fresh Farm, I want to order from today's list.");
-
-// For browser (opens WhatsApp Web)
-const waWeb = `https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT}`;
-
-// For mobile app (opens WhatsApp app directly)
-const waApp = `whatsapp://send?phone=${WA_NUMBER}&text=${ORDER_TEXT}`;
-
-
-
-const btn = document.getElementById('waOrder');
-btn.addEventListener('click', function (e) {
-  e.preventDefault();
-  window.open(waApp, "_blank"); // always try to open WhatsApp app
-});
-
-
-    const btn=document.getElementById('waOrder');
-    // Baseline: set regular web URL so crawlers / desktop still work
-    btn.href=waWeb;
-
-    // On phones, try opening the app; if it doesn't open, fall back to web link
-    btn.addEventListener('click',function(e){
+    const btn = document.getElementById('waOrder');
+    btn.href = waWeb; // baseline
+    btn.addEventListener('click', function(e){
       e.preventDefault();
-      // Try the app deep link first (works when WhatsApp is installed)
-      window.location.href=waApp;
-      // If the app isn't installed or deep link fails, go to wa.me after a short delay
-      setTimeout(()=>{ window.location.href=waWeb; }, 900);
+      // try app deep link
+      window.location.href = waApp;
+      // fallback to web after short delay
+      setTimeout(() => { window.location.href = waWeb; }, 900);
     });
-  </script></body>
+  </script>
+</body>
 </html>
-
