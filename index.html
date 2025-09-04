@@ -100,11 +100,23 @@ footer{color:var(--muted);font-size:12px;margin:16px 2px;text-align:center}
     document.querySelectorAll('.date-today').forEach(el=>el.textContent=todayStr);
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // —— WhatsApp order link with robust fallback ——
-    const WA_NUMBER='917816090164'; // 91 + 7816090164
-    const ORDER_TEXT=encodeURIComponent('🤝 Hi Reddy Fresh Farm, I want to order from today\'s list.');
-    const waWeb=https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT}; // Works in any browser
-    const waApp=whatsapp://send?phone=${WA_NUMBER}&text=${ORDER_TEXT}; // Opens app directly
+   const WA_NUMBER = '917816090164'; // 91 + number
+const ORDER_TEXT = encodeURIComponent("🤝 Hi Reddy Fresh Farm, I want to order from today's list.");
+
+// For browser (opens WhatsApp Web)
+const waWeb = `https://wa.me/${WA_NUMBER}?text=${ORDER_TEXT}`;
+
+// For mobile app (opens WhatsApp app directly)
+const waApp = `whatsapp://send?phone=${WA_NUMBER}&text=${ORDER_TEXT}`;
+
+// Example: open automatically (detect mobile/desktop if you want)
+function openWhatsApp() {
+  if (/Mobi|Android/i.test(navigator.userAgent)) {
+    window.location.href = waApp;  // mobile
+  } else {
+    window.open(waWeb, "_blank");  // desktop
+  }
+}
 
     const btn=document.getElementById('waOrder');
     // Baseline: set regular web URL so crawlers / desktop still work
