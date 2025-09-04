@@ -108,7 +108,7 @@
 
     <footer>© <span id="year"></span> Reddy Fresh Farm Deals • Farm-fresh produce delivered nearby.</footer>
   </div>
-<script>
+<!-- <script>
 // ---- Date updater ----
 const IN_TZ = 'Asia/Kolkata';
 const fmtDate = d => new Intl.DateTimeFormat('en-IN', {
@@ -129,6 +129,31 @@ btn.addEventListener('click', function (e) {
   e.preventDefault();
   window.open(waApp, "_blank"); // always try WhatsApp app
 });
+</script> -->
+
+
+
+
+    <script>
+// ---- Date updater ----
+const IN_TZ = 'Asia/Kolkata';
+const fmtDate = d => new Intl.DateTimeFormat('en-IN', {
+  year: 'numeric', month: 'short', day: '2-digit', timeZone: IN_TZ
+}).format(d);
+
+const todayStr = fmtDate(new Date());
+document.querySelectorAll('.date-today').forEach(el => el.textContent = todayStr);
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---- WhatsApp Catalog Redirect ----
+const waCatalog = "https://wa.me/c/917816090164";
+
+const btn = document.getElementById('waOrder');
+btn.addEventListener('click', function (e) {
+  e.preventDefault();
+  window.open(waCatalog, "_blank"); // opens WhatsApp catalog
+});
 </script>
+
 
   </body> </html>
